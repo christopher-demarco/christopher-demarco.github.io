@@ -1,0 +1,8 @@
+title: Christopher DeMarco
+description: Guided by wizards
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-minimal
+
+gems:
+  - jekyll-mentions
