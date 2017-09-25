@@ -1,8 +1,12 @@
-Here is a print-friendly version of the presentation: <link>
+# m4-Deployment and Orchestration With Terraform
 
-Here is a full-color version of the presentation: <link>
+# 30 October 2017 0900 - 1230 PDT5PST
 
-Here is the GitHub repository containing the code examples used in the tutorial: <link>
+[PRINT ME](M4-Deployment-and-Orchestration_With-Terraform-PRINTABLE.pdf)
+
+[PRESENTATION](M4-Deployment-and-Orchestration_With-Terraform-SCREEN.pdf)
+
+[CLONE ME](http://github.com/christopher-demarco/magrathea.git)
 
 -----
 copyright (c) 2017 christopher demarco . all rights reserved .
