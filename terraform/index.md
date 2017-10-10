@@ -1,12 +1,11 @@
-## M4-Deployment and Orchestration With Terraform
+# M4-Deployment and Orchestration With Terraform
 
-### 30 October 2017 0900 - 1230 PDT5PST
+Here are the materials for my tutorial taught at the USENIX LISA
+conference in San Francisco on 30 October 2017.
 
 - [PRINT ME](M4-Deployment-and-Orchestration_With-Terraform-PRINTABLE.pdf)
 
-- [PRESENTATION](M4-Deployment-and-Orchestration_With-Terraform-SCREEN.pdf)
-
-- [CLONE ME](http://github.com/christopher-demarco/magrathea.git)
+- [READ ME](M4-Deployment-and-Orchestration_With-Terraform.pdf)
 
 -----
-copyright (c) 2017 christopher demarco . all rights reserved .
+Copyright (c) 2017 Christopher DeMarco. All Rights Reserved.
