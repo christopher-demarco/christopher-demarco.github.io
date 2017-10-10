@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ "/assets/style.css" | relative_url }}">
+</head>
+<body>
+  <div class="wrapper">
+    <header role="banner">
+      <h1><a href="{{ site.url }}" rel="home">{{ site.title }}</a></h1>
+    </header>
+    <article>
+      {% if page.title %}
+        <header>
+          <h2>{{ page.title }}</h2>
+        </header>
+      {% endif %}
+      {{ page.content | markdownify }}
+    </article>
+    <footer role="siteinfo">Copyright &copy;2017 Christopher DeMarco. All Rights Reserved.</footer>
+  </div>
+</body>
+</html>
