@@ -1,6 +1,5 @@
 ---
 layout: page
-title:
 ---
 ## LISA 2017 tutorial materials
 
