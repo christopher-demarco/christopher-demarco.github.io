@@ -1,8 +1,7 @@
 ---
 layout: page
-title: M8-Automation With Ansible
 ---
-
+## M8-Automation With Ansible
 Here are the materials for my tutorial at the USENIX LISA conference
 in San Francisco on 30 October 2017.
 
