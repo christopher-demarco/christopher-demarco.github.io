@@ -1,5 +1,8 @@
 -----
-LISA 2017 tutorial materials
+# LISA 2017 tutorial materials
+
+Here you can find materials for two tutorials I'm teaching at the
+USENIX LISA conference in San Francisco on 30 October 2017.
 
 [M4-Deployment and Orchestration With Terraform](terraform)
 
@@ -7,4 +10,4 @@ LISA 2017 tutorial materials
 
 -----
 
-copyright (c) 2017 christopher demarco . all rights reserved .
+Copyright (c) 2017 Christopher DeMarco. All Rights Reserved.
