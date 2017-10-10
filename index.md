@@ -8,3 +8,5 @@ USENIX LISA conference in San Francisco on 30 October 2017.
 
 - [M4-Deployment and Orchestration With Terraform](terraform)
 - [M8-Automation With Ansible](ansible)
+
+foo
