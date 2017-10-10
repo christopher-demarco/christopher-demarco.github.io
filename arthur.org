@@ -1,3 +1,4 @@
-* TODO [#A] Fix website theme
-* TODO [#A] Figure out how to do print version
-* TODO [#A] Figure out what else goes on the website
+* TODO Fix website theme
+* TODO Figure out how to do print version
+* TODO Figure out what else goes on the website
+* TODO Figure out how to remove the GitHub Pages "download" links
