@@ -1,8 +1,6 @@
 title: Christopher DeMarco
-description: 
-google_analytics: 
-show_downloads: true
-theme: jekyll-theme-tactile
+description:
+google_analytics:
 
-gems:
+plugins:
   - jekyll-mentions
