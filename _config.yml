@@ -1,0 +1,5 @@
+title: CMD
+description: watch this space
+theme: minima
+plugins:
+  - jekyll-feed
