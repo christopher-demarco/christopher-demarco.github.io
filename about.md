@@ -3,8 +3,6 @@ layout: page
 title: CMD
 ---
 
-# Christopher DeMarco
-
 AI-native since 2024.
 
 DevOps, AWS, and Kubernetes since 2017.
