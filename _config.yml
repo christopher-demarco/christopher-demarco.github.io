@@ -10,6 +10,9 @@ author: CMD
 github_username:  christopher-demarco
 linkedin_username: alephant
 
+header_pages:
+  - about.md
+
 # Build settings
 theme: minima
 plugins:
