@@ -75,25 +75,26 @@ The second option better matches the desired workflow: from the work vault, hit 
 
 ## Sprint
 
-- TODO Create static build spike for public notes only [status:: ready] [sprint:: 2026-W21]
-- TODO Define public frontmatter contract: `public: true`, `UID`, title fallback [status:: ready] [sprint:: 2026-W21]
+- DONE Create static build spike for public notes only [status:: done] [sprint:: 2026-W21]
+- DONE Define public frontmatter contract: `public: true`, `UID`, title fallback [status:: done] [sprint:: 2026-W21]
 - DONE Manually prove Jekyll renders copied Markdown notes and converts relative `.md` links to `.html` [status:: done] [sprint:: 2026-W21]
 - DONE Manually create UID redirect pages in `~/cmd/src/www/master/zk/` for browser testing [status:: done] [sprint:: 2026-W21]
-- TODO Generate UID redirect pages automatically for every public note [status:: ready] [sprint:: 2026-W21]
-- TODO Decide behavior for public notes linking to private notes: fail build vs. warning report [status:: ready] [sprint:: 2026-W21]
+- DONE Generate UID redirect pages automatically for every public note [status:: done] [sprint:: 2026-W21]
 - DONE Decide artifact handoff: ZK dispatches, website repo pulls/builds/deploys [status:: done] [sprint:: 2026-W21]
 - DONE Add ZK workflow that dispatches website build on Markdown pushes [status:: done] [sprint:: 2026-W21]
 - DONE Add website workflow that regenerates `/zk/` from checked-out ZK source [status:: done] [sprint:: 2026-W21]
-- TODO Configure required GitHub secrets: `PUBLIC_ZK_DISPATCH_TOKEN` in ZK repo and `ZK_READ_TOKEN` in website repo [status:: ready] [sprint:: 2026-W21]
-- TODO Test end-to-end dispatch from ZK push to website Pages deploy [status:: ready] [sprint:: 2026-W21]
-- TODO Spike Obsidian plugin command: pick personal note, read UID, insert public URL [status:: ready] [sprint:: 2026-W21]
+- DONE Configure required GitHub secrets: `PUBLIC_ZK_DISPATCH_TOKEN` in ZK repo and `ZK_READ_TOKEN` in website repo [status:: done] [sprint:: 2026-W21]
+- DONE Test end-to-end dispatch from ZK push to website Pages deploy [status:: done] [sprint:: 2026-W21]
+- TODO Move inline website workflow generator into a script [status:: ready] [sprint:: 2026-W21]
+- TODO Install/test packaged Obsidian command in work vault [status:: ready] [sprint:: 2026-W21]
+- DONE Add Emacs markdown-mode command to insert public ZK links [status:: done] [sprint:: 2026-W21]
 
 ## Backlog
 
 - SOMEDAY Add graph visualization over public-to-public links only.
 - SOMEDAY Add backlinks computed only from public notes.
 - SOMEDAY Support aliases/slugs while keeping UID as canonical route.
-- SOMEDAY Add a build-time privacy report listing skipped links from public notes to private notes.
+- SOMEDAY Add an optional privacy report listing links from public notes to non-public notes. Non-public notes are not exported, so these links are dead rather than content leaks; the remaining concern is metadata leakage through link text or filenames.
 - SOMEDAY Integrate with [Daneel](Daneel.html#phase-5-public-portfolio-view) as the content substrate for the public portfolio view.
 
 ## Last Session Summary
@@ -107,4 +108,7 @@ The second option better matches the desired workflow: from the work vault, hit 
 - Created manual test UID redirects in `~/cmd/src/www/master/zk/`; next implementation step is a generator that copies public notes and emits these redirect pages automatically.
 - Added raw-curl ZK dispatch workflow at `.github/workflows/public-zk-dispatch.yml` and yq-based website receiver workflow at `~/cmd/src/www/master/.github/workflows/public-zk-build.yml`.
 - Marked this design note `public: true` as the first seed note; local `yq --front-matter=extract` confirms the workflow commands read both `public` and `UID`.
-- Captured the Obsidian workflow: keyboard shortcut in the work vault opens a personal-ZK note picker, reads `UID`, verifies `public: true`, and inserts a public Markdown URL.
+- Confirmed end-to-end publishing works: ZK dispatch triggers the website workflow, website workflow regenerates `/zk/`, GitHub Pages publishes the branch, UID routes redirect, and generated public copies rewrite `.md` links to `.html` for Jekyll.
+- Decided not to block on links from public notes to private notes. Private targets are not exported; a future report may help identify metadata leakage through link text or filenames.
+- Packaged the Obsidian command as `tools/obsidian-public-zk-link/public-zk-link/` with a README for copying it into work vaults. The plugin expands `~`, reads public notes from the configured personal ZK checkout, and inserts `https://christopherdemarco.com/zk/<UID>/`.
+- Added Doom Emacs markdown command `cmd-markdown-insert-public-zk-link`, bound to `C-c C-z`, using `expand-file-name` for a portable ZK path.
