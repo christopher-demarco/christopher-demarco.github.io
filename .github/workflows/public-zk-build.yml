@@ -82,15 +82,10 @@ jobs:
                 echo "duplicate public note filename: $name" >&2
                 exit 1
               fi
-              note_href="${name// /%20}"
-              awk -v permalink="/zk/$note_href" '
-                NR == 1 && $0 == "---" {
-                  print
-                  print "permalink: " permalink
-                  next
-                }
-                { print }
-              ' "$note" > "zk/$name"
+              cp "$note" "zk/$name"
+              perl -0pi -e 's{(\]\([^)\n?#]+)\.md(?=([#?)]))}{$1.html}g' "zk/$name"
+              html_name="${name%.md}.html"
+              html_href="${html_name// /%20}"
 
               if [ -e "zk/$uid" ]; then
                 echo "duplicate public note UID: $uid" >&2
@@ -102,13 +97,13 @@ jobs:
           <html lang="en">
           <head>
             <meta charset="utf-8">
-            <meta http-equiv="refresh" content="0; url=../$note_href">
-            <link rel="canonical" href="../$note_href">
+            <meta http-equiv="refresh" content="0; url=../$html_href">
+            <link rel="canonical" href="../$html_href">
             <title>Redirecting...</title>
           </head>
           <body>
-            <p>Redirecting to <a href="../$note_href">$name</a>.</p>
-            <script>window.location.replace("../$note_href");</script>
+            <p>Redirecting to <a href="../$html_href">$html_name</a>.</p>
+            <script>window.location.replace("../$html_href");</script>
           </body>
           </html>
           EOF
