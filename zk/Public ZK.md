@@ -1,4 +1,5 @@
 ---
+permalink: /zk/Public%20ZK.md
 UID: Z202605192233000
 public: true
 ---

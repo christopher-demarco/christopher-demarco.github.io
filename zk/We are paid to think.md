@@ -1,4 +1,5 @@
 ---
+permalink: /zk/We%20are%20paid%20to%20think.md
 UID: Z202501140000000
 public: true
 ---

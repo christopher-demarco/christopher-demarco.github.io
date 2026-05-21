@@ -1,4 +1,5 @@
 ---
+permalink: /zk/Lightweight%20UIDs%20for%20linking%20into%20ZK.md
 UID: Z202507132346000
 public: true
 ---
