@@ -84,6 +84,7 @@ jobs:
               fi
               cp "$note" "zk/$name"
               html_name="${name%.md}.html"
+              html_href="${html_name// /%20}"
 
               if [ -e "zk/$uid" ]; then
                 echo "duplicate public note UID: $uid" >&2
@@ -95,13 +96,13 @@ jobs:
           <html lang="en">
           <head>
             <meta charset="utf-8">
-            <meta http-equiv="refresh" content="0; url=../$html_name">
-            <link rel="canonical" href="../$html_name">
+            <meta http-equiv="refresh" content="0; url=../$html_href">
+            <link rel="canonical" href="../$html_href">
             <title>Redirecting...</title>
           </head>
           <body>
-            <p>Redirecting to <a href="../$html_name">$html_name</a>.</p>
-            <script>window.location.replace("../$html_name");</script>
+            <p>Redirecting to <a href="../$html_href">$html_name</a>.</p>
+            <script>window.location.replace("../$html_href");</script>
           </body>
           </html>
           EOF
