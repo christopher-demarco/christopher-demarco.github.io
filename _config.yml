@@ -10,6 +10,9 @@ author: CMD
 github_username:  christopher-demarco
 linkedin_username: alephant
 
+titles_from_headings:
+  strip_title: true
+
 header_pages:
   - about.md
 
