@@ -3,6 +3,8 @@ UID: Z202605192233000
 public: true
 ---
 
+# Public ZK
+
 ## Vision
 
 Publish a fail-closed public view of the personal ZK at `christopherdemarco.com/zk`, so individual public notes can be shared by stable links without exposing private material by accident.
