@@ -1,5 +1,4 @@
 ---
-permalink: /zk/Public%20ZK.md
 UID: Z202605192233000
 public: true
 ---
@@ -15,7 +14,7 @@ The public app should preserve the "ZK DAG" experience: readable notes, traversa
 
 - Public/private gate: fail closed for the prototype. A note is publishable only when its YAML frontmatter contains an explicit `public: true`.
 - Visibility migration path: after the public build proves safe and useful, audit the ZK, mark private notes explicitly with `private: true`, and flip the static-site-generator predicate from allowlist mode to denylist mode. This changes the publication predicate, not the architecture.
-- Stable public address: use the existing [Lightweight UIDs for linking into ZK](Lightweight%20UIDs%20for%20linking%20into%20ZK.md) convention as the route key, not filenames.
+- Stable public address: use the existing [Lightweight UIDs for linking into ZK](Lightweight%20UIDs%20for%20linking%20into%20ZK.html) convention as the route key, not filenames.
 - Hosting preference: `christopherdemarco.com/zk`, via the existing GitHub Pages site at `~/cmd/src/www/master` (`christopher-demarco/christopher-demarco.github.io`).
 - Repo boundary: the ZK repo remains the content source and natural trigger; the public website repo is the publishing host. On ZK pushes, a ZK workflow dispatches a website workflow; the website workflow checks out the ZK repo, regenerates `/zk/`, and deploys GitHub Pages.
 - Trigger strategy: dispatch the website build on every Markdown push while prototyping. Do not prematurely gate on `public: true`; deletes, visibility flips, private-link reports, and generator changes can all matter. Later optimization should compare the generated public projection, not infer relevance from raw changed files.
@@ -95,7 +94,7 @@ The second option better matches the desired workflow: from the work vault, hit 
 - SOMEDAY Add backlinks computed only from public notes.
 - SOMEDAY Support aliases/slugs while keeping UID as canonical route.
 - SOMEDAY Add a build-time privacy report listing skipped links from public notes to private notes.
-- SOMEDAY Integrate with [Daneel](Daneel.md#phase-5-public-portfolio-view) as the content substrate for the public portfolio view.
+- SOMEDAY Integrate with [Daneel](Daneel.html#phase-5-public-portfolio-view) as the content substrate for the public portfolio view.
 
 ## Last Session Summary
 
