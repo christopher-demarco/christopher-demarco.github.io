@@ -7,7 +7,7 @@ public: true
 
 ## The problem
 
-Knowledge locked inside a skill is invisible to humans and uncomposable by agents. A human who needs the Splunk field schema for K8s labels must read skill source code. An agent correlating ingress-nginx logs with external-secrets failures cannot combine knowledge from two skills. Each skill is a sealed box.
+Knowledge locked inside a skill is invisible to humans and uncomposable by agents. A human who needs the Splunk field schema for K8s labels must read skill source code. An agent correlating ingress-nginx logs with external-secrets failures cannot combine knowledge from two skills. Each skill is a sealed box. See [Progressive disclosure is related to composability](Progressive%20disclosure%20is%20related%20to%20composability.html).
 
 We maintain the same knowledge in two places. The up-log skill duplicates field schemas belonging in cluster-logging.mdx. The ingress-nginx skill carries 390 lines of Splunk query reference alongside existing ingress documentation. The deploy-app-to-k8s skill embeds 13 deployment guardrails that duplicate the namespace and golden-paths wiki pages — in a format only agents read.
 
@@ -43,5 +43,5 @@ See also:
 - [Thin harness, Fat Skills](Thin%20harness,%20Fat%20Skills.html)
 - [Wikidex](wikidex.html)
 - [Wikidex shadow indexing](Wikidex%20shadow%20indexing.html)
-- [MCP and the wikidex stack](MCP%20and%20the%20wikidex%20stack.html)Z20260512171642000
+- [MCP and the wikidex stack](MCP%20and%20the%20wikidex%20stack.html)
 
