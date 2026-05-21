@@ -2,7 +2,6 @@
 UID: Z202512280001000
 repo: git@github.com:christopher-demarco/daneel.git
 public: true
-title: Daneel
 ---
 # Daneel
 
