@@ -2,7 +2,6 @@
 UID: Z202605192233000
 public: true
 ---
-# Public ZK
 
 ## Vision
 
