@@ -83,6 +83,7 @@ jobs:
                 exit 1
               fi
               cp "$note" "zk/$name"
+              html_name="${name%.md}.html"
 
               if [ -e "zk/$uid" ]; then
                 echo "duplicate public note UID: $uid" >&2
@@ -94,13 +95,13 @@ jobs:
           <html lang="en">
           <head>
             <meta charset="utf-8">
-            <meta http-equiv="refresh" content="0; url=../$name">
-            <link rel="canonical" href="../$name">
+            <meta http-equiv="refresh" content="0; url=../$html_name">
+            <link rel="canonical" href="../$html_name">
             <title>Redirecting...</title>
           </head>
           <body>
-            <p>Redirecting to <a href="../$name">$name</a>.</p>
-            <script>window.location.replace("../$name");</script>
+            <p>Redirecting to <a href="../$html_name">$html_name</a>.</p>
+            <script>window.location.replace("../$html_name");</script>
           </body>
           </html>
           EOF
