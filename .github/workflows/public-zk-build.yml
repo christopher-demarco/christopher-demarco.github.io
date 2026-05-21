@@ -1,0 +1,129 @@
+name: Public ZK build
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/public-zk-build.yml"
+  repository_dispatch:
+    types:
+      - public-zk-updated
+  workflow_dispatch:
+    inputs:
+      source_ref:
+        description: ZK ref to publish
+        required: false
+        default: main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build public ZK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout website
+        uses: actions/checkout@v4
+
+      - name: Checkout ZK source
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.client_payload.source_repository || 'christopher-demarco/zettelkasten' }}
+          ref: ${{ github.event.client_payload.source_sha || inputs.source_ref || 'main' }}
+          token: ${{ secrets.ZK_READ_TOKEN }}
+          path: _zk_source
+
+      - name: Configure Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.4.6"
+          bundler-cache: true
+
+      - name: Install yq
+        env:
+          YQ_VERSION: v4.44.6
+        run: |
+          set -euo pipefail
+          sudo curl --fail --silent --show-error --location \
+            --output /usr/local/bin/yq \
+            "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64"
+          sudo chmod +x /usr/local/bin/yq
+          yq --version
+
+      - name: Generate public ZK files
+        run: |
+          set -euo pipefail
+          rm -rf zk
+          mkdir -p zk
+
+          find _zk_source -name '*.md' -print0 |
+            while IFS= read -r -d '' note; do
+              is_public="$(yq --front-matter=extract '.public == true' "$note")"
+
+              [ "$is_public" = "true" ] || continue
+
+              uid="$(yq --front-matter=extract '.UID // ""' "$note")"
+              if [ -z "$uid" ]; then
+                echo "missing UID: $note" >&2
+                exit 1
+              fi
+
+              name="$(basename "$note")"
+              if [ -e "zk/$name" ]; then
+                echo "duplicate public note filename: $name" >&2
+                exit 1
+              fi
+              cp "$note" "zk/$name"
+
+              if [ -e "zk/$uid" ]; then
+                echo "duplicate public note UID: $uid" >&2
+                exit 1
+              fi
+              mkdir -p "zk/$uid"
+              cat > "zk/$uid/index.html" <<EOF
+          <!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <meta http-equiv="refresh" content="0; url=../$name">
+            <link rel="canonical" href="../$name">
+            <title>Redirecting...</title>
+          </head>
+          <body>
+            <p>Redirecting to <a href="../$name">$name</a>.</p>
+            <script>window.location.replace("../$name");</script>
+          </body>
+          </html>
+          EOF
+            done
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy public ZK
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
