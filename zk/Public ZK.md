@@ -9,3 +9,8 @@ Preserve the "ZK DAG" experience: readable notes, traversable links, backlinks w
 Stable public address: use the existing [Lightweight UIDs for linking into ZK](Lightweight%20UIDs%20for%20linking%20into%20ZK.html) convention as the route key, not filenames.
 
 Work-ZK outbound links: create an Obsidian command that lets me choose a note with Obsidian's familiar file picker, reads the target note's `UID`, and inserts a Markdown link to the public web app. Same for Emacs.
+
+Next:
+
+- [Public ZK script extraction](Public%20ZK%20script%20extraction.html)
+- [Public ZK DAG](Public%20ZK%20DAG.html)
