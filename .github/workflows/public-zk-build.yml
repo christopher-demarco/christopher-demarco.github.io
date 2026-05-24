@@ -6,6 +6,7 @@ on:
       - master
     paths:
       - ".github/workflows/public-zk-build.yml"
+      - "scripts/generate_public_zk.py"
   repository_dispatch:
     types:
       - public-zk-updated
@@ -45,69 +46,8 @@ jobs:
           ruby-version: "3.4.6"
           bundler-cache: true
 
-      - name: Install yq
-        env:
-          YQ_VERSION: v4.44.6
-        run: |
-          set -euo pipefail
-          sudo curl --fail --silent --show-error --location \
-            --output /usr/local/bin/yq \
-            "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64"
-          sudo chmod +x /usr/local/bin/yq
-          yq --version
-
       - name: Generate public ZK files
-        run: |
-          set -euo pipefail
-          rm -rf zk
-          mkdir -p zk
-
-          find _zk_source -name '*.md' -print0 |
-            while IFS= read -r -d '' note; do
-              is_public="$(
-                yq --front-matter=extract 'tag == "!!map" and .public == true' "$note" 2>/dev/null ||
-                  echo false
-              )"
-
-              [ "$is_public" = "true" ] || continue
-
-              uid="$(yq --front-matter=extract '.UID // ""' "$note")"
-              if [ -z "$uid" ]; then
-                echo "missing UID: $note" >&2
-                exit 1
-              fi
-
-              name="$(basename "$note")"
-              if [ -e "zk/$name" ]; then
-                echo "duplicate public note filename: $name" >&2
-                exit 1
-              fi
-              cp "$note" "zk/$name"
-              perl -0pi -e 's{(\]\([^)\n?#]+)\.md(?=([#?)]))}{$1.html}g' "zk/$name"
-              html_name="${name%.md}.html"
-              html_href="${html_name// /%20}"
-
-              if [ -e "zk/$uid" ]; then
-                echo "duplicate public note UID: $uid" >&2
-                exit 1
-              fi
-              mkdir -p "zk/$uid"
-              cat > "zk/$uid/index.html" <<EOF
-          <!doctype html>
-          <html lang="en">
-          <head>
-            <meta charset="utf-8">
-            <meta http-equiv="refresh" content="0; url=../$html_href">
-            <link rel="canonical" href="../$html_href">
-            <title>Redirecting...</title>
-          </head>
-          <body>
-            <p>Redirecting to <a href="../$html_href">$html_name</a>.</p>
-            <script>window.location.replace("../$html_href");</script>
-          </body>
-          </html>
-          EOF
-            done
+        run: python3 scripts/generate_public_zk.py --source _zk_source --out zk
 
       - name: Build Jekyll site
         run: bundle exec jekyll build
