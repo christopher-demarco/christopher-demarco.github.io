@@ -15,11 +15,11 @@ The name comes from [Asimov](https://en.wikipedia.org/wiki/R._Daneel_Olivaw).
 
 ## 2. Information Architecture
 
-- **The Hub:** [`PROJECTS.md`](PROJECTS.html) — A high-level dashboard with state tracking (status, focus, priority).
+- **The Hub:** [`PROJECTS.html`](PROJECTS.html) — A high-level dashboard with state tracking (status, focus, priority).
 
 - **The Spoke:** `Foo_Project.md`, `Bar_Project.md`, et al. — Single documents (index in [PROJECTS](PROJECTS.html)) containing both the **Design** (Spec/Vision) and the **Plan** (tasks/milestones). Projects with code repos include `repo: git@...` in YAML frontmatter.
 
-- **The Control Plane:** [`AGENTS.md`](AGENTS.html) — Instructions for the Daneel persona. (linked from [CLAUDE](CLAUDE.html) and [GEMINI](GEMINI.html))
+- **The Control Plane:** [`AGENTS.html`](AGENTS.html) — Instructions for the Daneel persona. (linked from [CLAUDE](CLAUDE.html) and [GEMINI](GEMINI.html))
 
 - **The Bridge:** [`/sync-projects` skill](https://github.com/christopher-demarco/zettelkasten/tree/main/.claude/skills/sync-projects) — Bidirectional sync between ZK project docs and repo `PLAN.md`, using a cached last-clean base per project plus a deterministic 3-way merge to keep concurrent producer/vibe-coder edits in sync. [ref](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)
 

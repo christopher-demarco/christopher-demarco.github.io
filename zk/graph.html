@@ -1,0 +1,47 @@
+---
+layout: page
+title: Public ZK Graph
+---
+
+<style>
+  #zk-graph {
+    border: 1px solid #ddd;
+    height: 70vh;
+    min-height: 32rem;
+  }
+</style>
+
+<div id="zk-graph"></div>
+
+<script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+<script>
+fetch("/zk/graph.json")
+  .then((response) => response.json())
+  .then((graph) => {
+    const nodes = new vis.DataSet(graph.nodes.map((node) => ({
+      id: node.id,
+      label: node.title,
+      url: node.url,
+    })));
+    const edges = new vis.DataSet(graph.links.map((edge) => ({
+      from: edge.source,
+      to: edge.target,
+    })));
+    const network = new vis.Network(
+      document.getElementById("zk-graph"),
+      { nodes, edges },
+      {
+        nodes: { shape: "dot", size: 12, font: { size: 15 } },
+        edges: { color: "#999", smooth: false },
+        physics: { stabilization: true },
+        interaction: { hover: true },
+      }
+    );
+    network.on("doubleClick", (event) => {
+      if (event.nodes.length) {
+        const node = nodes.get(event.nodes[0]);
+        if (node.url) window.location.href = node.url;
+      }
+    });
+  });
+</script>

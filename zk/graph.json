@@ -1,0 +1,288 @@
+{
+  "links": [
+    {
+      "source": "Z202410251702000",
+      "target": "Z202410251702001"
+    },
+    {
+      "source": "Z202410251702000",
+      "target": "Z202501142348000"
+    },
+    {
+      "source": "Z202410251702000",
+      "target": "Z202501142348001"
+    },
+    {
+      "source": "Z202410251702001",
+      "target": "Z202501082252000"
+    },
+    {
+      "source": "Z202411251916000",
+      "target": "Z202501082252001"
+    },
+    {
+      "source": "Z202501082252000",
+      "target": "Z202410251702000"
+    },
+    {
+      "source": "Z202501082252002",
+      "target": "Z202410251702000"
+    },
+    {
+      "source": "Z202501082252002",
+      "target": "Z202411251916000"
+    },
+    {
+      "source": "Z202501142348000",
+      "target": "Z202410251702001"
+    },
+    {
+      "source": "Z202501142348001",
+      "target": "Z202410251702000"
+    },
+    {
+      "source": "Z202501142348001",
+      "target": "Z202501142348002"
+    },
+    {
+      "source": "Z202501142348002",
+      "target": "Z202410251702000"
+    },
+    {
+      "source": "Z202501142348002",
+      "target": "Z202501082252002"
+    },
+    {
+      "source": "Z202501142348002",
+      "target": "Z202501142348001"
+    },
+    {
+      "source": "Z202507132346000",
+      "target": "Z202605192233000"
+    },
+    {
+      "source": "Z202507132358000",
+      "target": "Z202410251702000"
+    },
+    {
+      "source": "Z202507132358000",
+      "target": "Z202411251916000"
+    },
+    {
+      "source": "Z202507132358000",
+      "target": "Z202507132346000"
+    },
+    {
+      "source": "Z202512280001000",
+      "target": "Z202512280001000"
+    },
+    {
+      "source": "Z202512280001000",
+      "target": "Z202605192233000"
+    },
+    {
+      "source": "Z202605071430000",
+      "target": "Z202604271335000"
+    },
+    {
+      "source": "Z202605071430000",
+      "target": "Z202605121716000"
+    },
+    {
+      "source": "Z202605071430000",
+      "target": "Z202605121716001"
+    },
+    {
+      "source": "Z202605121716000",
+      "target": "Z202604271335000"
+    },
+    {
+      "source": "Z202605121716000",
+      "target": "Z202605071430000"
+    },
+    {
+      "source": "Z202605121716000",
+      "target": "Z202605121716001"
+    },
+    {
+      "source": "Z202605121716000",
+      "target": "Z202605211636000"
+    },
+    {
+      "source": "Z202605121716001",
+      "target": "Z202605071430000"
+    },
+    {
+      "source": "Z202605121716001",
+      "target": "Z202605121716000"
+    },
+    {
+      "source": "Z202605192233000",
+      "target": "Z202507132346000"
+    },
+    {
+      "source": "Z202605192233000",
+      "target": "Z202605240001000"
+    },
+    {
+      "source": "Z202605192233000",
+      "target": "Z202605240002000"
+    },
+    {
+      "source": "Z202605201531001",
+      "target": "Z202604271335000"
+    },
+    {
+      "source": "Z202605201531001",
+      "target": "Z202605121716000"
+    },
+    {
+      "source": "Z202605211636000",
+      "target": "Z202501142348002"
+    },
+    {
+      "source": "Z202605211636000",
+      "target": "Z202605121716000"
+    },
+    {
+      "source": "Z202605241546000",
+      "target": "Z202605241608001"
+    },
+    {
+      "source": "Z202605241546000",
+      "target": "Z202605241608002"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "Z202501142348001",
+      "title": "A written work is an abstraction",
+      "url": "/zk/Z202501142348001/"
+    },
+    {
+      "id": "Z202410251702001",
+      "title": "Abstraction laddering",
+      "url": "/zk/Z202410251702001/"
+    },
+    {
+      "id": "Z202605241608001",
+      "title": "AI for DevOps",
+      "url": "/zk/Z202605241608001/"
+    },
+    {
+      "id": "Z202605241546000",
+      "title": "AI for DevOps and DevOps for AI",
+      "url": "/zk/Z202605241546000/"
+    },
+    {
+      "id": "Z202507132358000",
+      "title": "context engineering",
+      "url": "/zk/Z202507132358000/"
+    },
+    {
+      "id": "Z202512280001000",
+      "title": "Daneel",
+      "url": "/zk/Z202512280001000/"
+    },
+    {
+      "id": "Z202605241608002",
+      "title": "DevOps for AI",
+      "url": "/zk/Z202605241608002/"
+    },
+    {
+      "id": "Z202410251702000",
+      "title": "Examples",
+      "url": "/zk/Z202410251702000/"
+    },
+    {
+      "id": "Z202501142348000",
+      "title": "Five Whys",
+      "url": "/zk/Z202501142348000/"
+    },
+    {
+      "id": "Z202507132346000",
+      "title": "Lightweight UIDs for linking into ZK",
+      "url": "/zk/Z202507132346000/"
+    },
+    {
+      "id": "Z202501082252000",
+      "title": "Pattern-seeking is a superpower",
+      "url": "/zk/Z202501082252000/"
+    },
+    {
+      "id": "Z202605211636000",
+      "title": "Progressive disclosure is related to composability",
+      "url": "/zk/Z202605211636000/"
+    },
+    {
+      "id": "Z202605192233000",
+      "title": "Public ZK",
+      "url": "/zk/Z202605192233000/"
+    },
+    {
+      "id": "Z202605240002000",
+      "title": "Public ZK DAG",
+      "url": "/zk/Z202605240002000/"
+    },
+    {
+      "id": "Z202605240001000",
+      "title": "Public ZK script extraction",
+      "url": "/zk/Z202605240001000/"
+    },
+    {
+      "id": "Z202605201531001",
+      "title": "Read-only hooks are the part of a thin skill that must stay fat",
+      "url": "/zk/Z202605201531001/"
+    },
+    {
+      "id": "Z202605121716000",
+      "title": "Skills Should Be Thin; the Wiki Should Be Fat",
+      "url": "/zk/Z202605121716000/"
+    },
+    {
+      "id": "Z202501082252001",
+      "title": "Storytelling is a superpower",
+      "url": "/zk/Z202501082252001/"
+    },
+    {
+      "id": "Z202501082252002",
+      "title": "Structure notes create new knowledge, rather than merely organizing it",
+      "url": "/zk/Z202501082252002/"
+    },
+    {
+      "id": "Z202604271335000",
+      "title": "Thin harness, Fat Skills",
+      "url": "/zk/Z202604271335000/"
+    },
+    {
+      "id": "Z202508131218000",
+      "title": "Vibe coding is dangerous and requires extreme intentionality",
+      "url": "/zk/Z202508131218000/"
+    },
+    {
+      "id": "Z202501140000000",
+      "title": "We are paid to think",
+      "url": "/zk/Z202501140000000/"
+    },
+    {
+      "id": "Z202605071430000",
+      "title": "Wikidex shadow indexing",
+      "url": "/zk/Z202605071430000/"
+    },
+    {
+      "id": "Z202605121716001",
+      "title": "Wikidex: a thin meta-index for agent-discoverable wikis",
+      "url": "/zk/Z202605121716001/"
+    },
+    {
+      "id": "Z202501142348002",
+      "title": "ZK is excellent for writing because collections assemble upward into finished product",
+      "url": "/zk/Z202501142348002/"
+    },
+    {
+      "id": "Z202411251916000",
+      "title": "zk-is-a-conversation-it-is-emergent",
+      "url": "/zk/Z202411251916000/"
+    }
+  ]
+}
