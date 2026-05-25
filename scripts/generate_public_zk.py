@@ -218,6 +218,7 @@ fetch("/zk/graph.json")
     const nodes = new vis.DataSet(graph.nodes.map((node) => ({
       id: node.id,
       label: node.title,
+      title: node.title,
       url: node.url,
     })));
     const edges = new vis.DataSet(graph.links.map((edge) => ({
@@ -234,7 +235,13 @@ fetch("/zk/graph.json")
         interaction: { hover: true },
       }
     );
-    network.on("doubleClick", (event) => {
+    network.on("hoverNode", () => {
+      network.canvas.body.container.style.cursor = "pointer";
+    });
+    network.on("blurNode", () => {
+      network.canvas.body.container.style.cursor = "default";
+    });
+    network.on("click", (event) => {
       if (event.nodes.length) {
         const node = nodes.get(event.nodes[0]);
         if (node.url) window.location.href = node.url;
