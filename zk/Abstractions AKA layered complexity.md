@@ -3,6 +3,8 @@ UID: Z202410251702000
 public: true
 ---
 
+# Abstractions AKA layered complexity
+
 This is the idea that you can put something in terms of the relationships of other somethings.
 
 [Abstraction laddering](Abstraction%20laddering.html) and [The Five Whys](Five%20Whys.html) are tools for moving between layers.
